@@ -1,0 +1,179 @@
+ Copyright (c) 2019 - Monaco F. J. <monaco@usp.br>
+ 
+ This is free software and distributed under GNU GPL vr.3. Please refer 
+ to the companion file LICENSING or to the online documentation at
+ https://www.gnu.org/licenses/gpl-3.0.txt for further information.
+
+ README (seriously, read me)
+ ==============================
+
+ These are the directions for your appointment.
+
+ ASSIGNMENT DIRECTIONS
+ ---------------------
+
+ Provided template source file 'mbr.asm' prints the beloved "Hello World!"
+ greetings on the screen. Edit this file and make something cool with it.
+
+ If you happen to be short of ideas, perhaps you may consider things like
+ a command interpreter, a small game, a text-mode animation, a hardware
+ configuration checker... or anything fun.
+
+ Your code shall boot from a USB memory stick and run in a real (physical,
+ not emulated) x86-based computer hardware.
+
+ Remember that during the boot your program will run in 16-bit real mode and
+ that you cannot rely on anything else except the BIOS. And it must work in
+ any standard x86-based computer --- therefore, avoid using non-standard
+ features or resources specific to your own piece of hardware. To be sure,
+ test the USB stick in a different computer.
+
+ Also, bear in mind that your code must fit within 512 bytes limit, it should
+ end with the proper boot signature, and will be loaded in a specific RAM
+ location by the BIOS firmware. You may, however, use your bootloader to
+ write in different memory locations and also to load an external file onto
+ RAM (e.g. by using BIOS interruptions); you may resort to if you want to do
+ make a program exceeding the 512 MBR limit (and remember to add the files
+ you eventually create to the VCS project repository.)
+
+ The purpose of this programming exercise is to get familiarity with x86
+ assembly, 16-bit real-mode programming, BIOS services and boot loading
+ mechanisms.
+ 
+ WHAT YOU NEED
+ -------------
+ 
+ You'll need a standard modern GNU/Linux platform with binutils, nasm,
+ qemu, make and your preferred text editor.
+
+ Read 'Makefile' for configuration directions.
+
+ BUILDING RULES
+ --------------
+
+ At the terminal prompt, command
+
+    $ make
+
+ builds your MBR image (boot loader binary).
+
+ You may test it using the x86 emulator by issuing
+
+    $ make test
+
+ In order to build a bootable ISO image for a USB memory stick, issue
+
+    $ make iso
+
+ and to test it, use
+
+    $ make test-iso
+
+ To copy the iso image to your physical USB memory stick, use
+
+    $ make stick
+
+ Other rules such as clean etc. work as usual.
+
+ TROUBLESHOOTING
+ ---------------
+
+ If you have problems booting your image with the emulator, make sure your
+ image has the right size and boot signature. This is the main cause of
+ booting failures.
+
+ If you have problems booting your iso image through your USB stick, check
+ your BIOS configuration settings, specially boot options. You may need to
+ enable legacy BIOS support, or to disable security boot features. 
+
+ HOW TO DELIVER
+ --------------
+
+ * Preparation
+
+
+ Before anything else, it's a good idea to do ensure your author rights on
+ your source code before publishing it online. To that end add the following
+ statement right at the top of your source files:
+
+	;; Copyright (c) <Year> - <Name> <e-mail>
+	;;
+	;; This is free software and distributed under GNU GPL vr.3. Please 
+	;; refer to the companion file LICENSING or to the online documentation
+	;; at https://www.gnu.org/licenses/gpl-3.0.txt for further information.
+
+
+ replacing <Year> and <Name> and <e-mail> with your data. 
+
+ Edit your file README, replacing these very instructions with your project's
+ documentation (you are welcome to mention that this is a programming exercise
+ and refer to the template repository).
+
+ Also, edit file AUTHORS as therein indicated.
+
+ * Delivering
+
+ When you're done with your work, make sure you have committed the latest 
+ version of your working example, pushed it to the main repository and, if
+ applicable, merged into the master branch.
+
+ It's a good idea to clone your repository in a different directory, build
+ and test your project to verify that everything is ok before making the
+ final release.
+
+
+ Your assignment will be considered completed when you make a 'release' by
+ means of adding a tag to your master branch. The final delivery of your work
+ shall be identified by the tag 'release-01'. It is this release that will be
+ considered for evaluation.
+
+ LEARNING MATERIAL
+ ------------------
+
+ There are some examples developed as class notes in [1]. This repository is
+ updated frequently and you are invited to check if regularly for new stuff
+ and eventual bug fixes. You may activate notifications on the repository page.
+
+ Official NASM manuals may be found in [2], and a quick assembly programming
+ tutorial is available at [3].
+
+ Official documentation of x86 architecture for developers, including complete
+ instruction set may be found at [4] in PDF format, while an alternative XML
+ compilation of the instruction set is available at [5].
+
+ Web site [6] has a very handy browsable reference for x86 instruction set.
+
+ Finally, there is also the OS developers esteemed OSDev.org [7].
+
+ Of course, as always, if everything fails, StackOverflow [8] and Google [9]
+ are still out there.
+
+ REFERENCES
+ ----------
+
+ [1] Practical System Programming
+     https://gitlab.com/monaco/praxyss
+
+ [2] NASM - The Netwide Assembler
+     https://www.nasm.us/doc
+ 
+ [3] Assembly Programming Tutorial
+     https://www.tutorialspoint.com/assembly_programming/index.htm
+
+ [4] Intel(R) 64 and IA-32 Architectures Software Developer Manuals
+     https://software.intel.com/en-us/articles/intel-sdm
+
+ [5] X86 Opcode and Instruction Reference
+     http://ref.x86asm.net/
+
+ [6] x86 Instruction Set Reference
+     https://c9x.me/x86/
+
+ [7] OSDev.org
+     https://www.osdev.org/
+
+ [8] Stackoverflow
+     https://stackoverflow.com/
+
+ [9] Google
+     https://www.google.com
